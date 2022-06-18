@@ -6,6 +6,7 @@
 // I. list variabes and paramters
 
 var C K A L Y I;
+// var C K A L Y I r;
 varexo e;
 
 parameters beta alpha delta rho theta psi;
@@ -25,6 +26,7 @@ model;
     L^psi = (A*(1-alpha)*K(-1)^alpha*L^(-alpha))/(theta * C);
     Y  = A*K(-1)^alpha*L^(1-alpha);
     I = Y - C;
+    // r = A*alpha*K^(alpha-1)*L^(1-alpha) - delta;
 end;
 
 // III. solve for the steady state
@@ -36,6 +38,7 @@ A = 1;
 L = 1;
 I = 1;
 Y = 1;
+// r = 1;
 end;
 
 // show steady state
