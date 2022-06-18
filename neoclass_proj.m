@@ -57,3 +57,11 @@ title('approximated value function Vhat(K,A) vs. initial quadratic guess Vq(K,A)
 legend('Vq','Vhat')
 
 %% welfare impact of approximation B10
+sh = ones(size(A));
+for i = 1:length(A)
+    sh(i) = fsolve(@(s) P.u(1-s)/(1-P.beta) + (1-s)*P.du(1-s)*Vq(i) -V(i),0.5);
+end
+plot(A,sh);
+xlabel('productivity A');
+ylabel('share s');
+title('impact of quadratic approximation as share of consumption variation');

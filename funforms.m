@@ -16,6 +16,8 @@ else
     P.u = @(c) (c.^(1-P.eta)-1)/(1-P.eta);
 end
 
+% derivate of utility
+P.du = @(c) c.^(-P.eta);
 
 % producitivity process
 P.g = @(A,eps) P.rho*A + (1-P.rho)*P.Abar +P.sigma* eps;
