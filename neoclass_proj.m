@@ -42,7 +42,7 @@ fprintf('min. residual:\t%6.2e \n', minerr)
 
 %% plot approximated value function B9
 A = 0.5:0.5/100:1;
-K = 1.110432704612086;
+K = 1.11043;
 Vq = ones(size(A));
 for i = 1:length(A)
     Vq(i) = initialguess_quad([K, A(i)]);
@@ -50,11 +50,10 @@ end
 V = funeval(cstar,fspace, [K*ones(length(A),1),nodeunif(length(A),0.5,1)]);
 plot(A,Vq);
 hold on
-plot(A,(V));
+plot(A,V);
 xlabel('productivity A');
 ylabel('value V');
-title('approximated value function Vhat(K,A) vs. initial quadratic guess Vq(K,A)');
-legend('Vq','Vhat')
+legend('initial quadratic approximation','Chebyshev approximation','Location','northwest')
 
 %% welfare impact of approximation B10
 sh = ones(size(A));
@@ -63,5 +62,4 @@ for i = 1:length(A)
 end
 plot(A,sh);
 xlabel('productivity A');
-ylabel('share s');
-title('impact of quadratic approximation as share of consumption variation');
+ylabel('share of consumption s');
