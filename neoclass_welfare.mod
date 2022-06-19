@@ -55,6 +55,9 @@ set_param_value('sigma',0);
 stoch_simul(order=2);
 set_param_value('sigma',0.02);
 stoch_simul(order=2);
+sh = fsolve(@(s) ((((1-s)*oo_.steady_state(1))^(1-eta)-1)/(1-eta))/(1-beta) -oo_.mean(4), 0.5);
+disp(sh);
+
 
 // B5
 set_param_value('eta',5);
@@ -62,6 +65,8 @@ set_param_value('sigma',0);
 stoch_simul(order=2);
 set_param_value('sigma',0.02);
 stoch_simul(order=2);
+sh = fsolve(@(s) ((((1-s)*oo_.steady_state(1))^(1-eta)-1)/(1-eta))/(1-beta) -oo_.mean(4), 0.5);
+disp(sh);
 
 // B6
 set_param_value('eta',2);
@@ -70,3 +75,5 @@ set_param_value('sigma',0);
 stoch_simul(order=2);
 set_param_value('sigma',0.02);
 stoch_simul(order=2);
+sh = fsolve(@(s) ((((1-s)*oo_.steady_state(1))^(1-eta)-1)/(1-eta))/(1-beta) -oo_.mean(4), 0.5);
+disp(sh);
